@@ -1,0 +1,28 @@
+<h1>Teams</h1>
+<hr>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Mascot</th>
+    <!-- <th>Team</th> -->
+  </thead>
+  <tbody *ngFor="let team of teamArray">
+    <tr>
+      <td>
+        {{team.name}}
+      </td>
+      <td>
+        {{team.mascot}}
+      </td>
+      <td>
+        <button (click) ="clickedBtn(team.id, team.name)">Create Player</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-player-create *ngIf="createdClicked" [id]="tempTeamId" [title]="tempTeamName"></app-player-create>
+
+
+<app-team-create></app-team-create>
+

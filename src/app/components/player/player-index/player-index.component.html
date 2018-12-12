@@ -1,0 +1,22 @@
+<h1>Players</h1>
+<hr>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Number</th>
+    <th>Team</th>
+  </thead>
+  <tbody *ngFor="let player of playerArray">
+    <tr>
+      <td>
+        {{player.name}}
+      </td>
+      <td>
+        {{player.playerNumber}}
+      </td>
+      <td>
+        {{player.team.name}}
+      </td>
+    </tr>
+  </tbody>
+</table>
