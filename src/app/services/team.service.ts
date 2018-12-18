@@ -9,10 +9,10 @@ export class TeamService {
   constructor(private http: HttpClient) { }
 
   getTeams() {
-    // create get request
+    return this.http.get('http://localhost:3000/api/team')
   }
 
   createTeam(teamObj) {  
-    // this create post request 
+    return this.http.post('http://localhost:3000/api/team', teamObj)
   }
 }

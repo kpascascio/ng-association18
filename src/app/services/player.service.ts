@@ -9,11 +9,11 @@ export class PlayerService {
   constructor(private http: HttpClient) { }
 
   getPlayers(){
-    //  create get request
+    return this.http.get('http://localhost:3000/api/player')
   }
 
-  createPlayer(value: any): any {
-    // Create post request
+  createPlayer(playerObj: any): any {
+    return this.http.post('http://localhost:3000/api/player', playerObj)
   }
 
 }

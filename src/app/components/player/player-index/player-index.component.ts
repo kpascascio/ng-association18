@@ -13,7 +13,9 @@ export class PlayerIndexComponent implements OnInit {
   constructor(private ps: PlayerService) { }
 
   ngOnInit() {
-    // use the get request team service
+    this.ps.getPlayers().subscribe((getAllPlayersFromDb:Object[])=>{
+      this.playerArray = getAllPlayersFromDb;
+    })  
   }
 
 }

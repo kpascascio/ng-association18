@@ -15,7 +15,10 @@ export class TeamIndexComponent implements OnInit {
   constructor(private ts: TeamService) { }
 
   ngOnInit() {
-    // use the get request team service
+    this.ts.getTeams().subscribe((teamArrayFromDB: Object[]) => {
+      this.teamArray = teamArrayFromDB;
+    })
+
   }
 
   // talk about what this function is doing

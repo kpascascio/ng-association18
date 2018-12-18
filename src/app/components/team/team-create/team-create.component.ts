@@ -10,19 +10,24 @@ import { TeamService } from 'src/app/services/team.service';
 })
 export class TeamCreateComponent implements OnInit {
   // create the formGroup (no nu)
+  public teamForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private ts: TeamService) { }
+  constructor(private fb: FormBuilder, private teamService: TeamService) { }
 
   ngOnInit() {
     this.createForm();
   }
 
   createForm() {
-    // use form builder to create the form
+    this.teamForm = this.fb.group({
+      name: new FormControl(), 
+      mascot: new FormControl()
+    })
   }
 
   onSubmit() {
-    // use team service create
+    this.teamService.createTeam(this.teamForm.value).subscribe(createdTeamFromDb => {
+      console.log(createdTeamFromDb)
+    })
   }
-
 }
